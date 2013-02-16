@@ -1,0 +1,15 @@
+{
+    "id":0
+    "level":"error",
+    "message":"Could not connect connect to the database, please go to the bar and wait!"
+},
+{
+    "id":1,
+    "level":"warning",
+    "message":"Your password is weak, hit the gym and make it stronger!"
+},
+{
+    "id":2,
+    "level":"info",
+    "message":"You are now logged in!"
+}

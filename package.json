@@ -1,0 +1,18 @@
+{
+  "private":true,
+  "name": "angular-notify",
+  "version": "0.0.1",
+  "author": "Edward Hotchkiss <edwardhotchkiss@me.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:edwardhotchkiss/angular-notify.git"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "description": "Angular.js Notifications Module. Includes Service for broadcasting, and a directive for the view.",
+  "dependencies": {
+    "uglify-js": "2.2.4",
+    "grunt":"0.3.17"
+  }
+}
