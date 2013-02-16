@@ -34,6 +34,14 @@ var notifyDemoApp = angular.module('notifyDemoApp',[
     return notificationService.dismiss(index);
   };
 
+  $scope.addNotification = function () {
+    if ($scope.message === undefined || $scope.message === '') {
+      notificationService.add('Your Notification Message cannot be blank!', 'error');
+    } else {
+      notificationService.add($scope.message, 'info');
+    }
+  }
+
 });
 
 ```
@@ -42,6 +50,15 @@ var notifyDemoApp = angular.module('notifyDemoApp',[
 
 ```html
 
-<ng-notify></ng-notify>
+<ng-notify use-endpoint="false"></ng-notify>
+
+<div class="control-group">
+  <h4>Add Notification:</h4>
+  <label>Message:</label>
+  <div class="controls">
+    <input type="text" name="message" ng-model="message" />
+    <button type="button" ng-click="addNotification()">Add Notification</button>
+  </div>
+</div>
 
 ```
