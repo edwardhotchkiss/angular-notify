@@ -1,7 +1,7 @@
 {
   "private":true,
   "name": "angular-notify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Edward Hotchkiss <edwardhotchkiss@me.com>",
   "repository": {
     "type": "git",
