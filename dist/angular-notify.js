@@ -9,7 +9,7 @@
  *
  */
 
-var angularNotifyModule = angular.module('AngularNotifyModule', ['ngCookies']);
+var angularNotifyModule = angular.module('AngularNotifyModule', []);
 
 
 /*!
