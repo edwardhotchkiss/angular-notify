@@ -62,3 +62,7 @@ var notifyDemoApp = angular.module('notifyDemoApp',[
 </div>
 
 ```
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/edwardhotchkiss/angular-notify/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
