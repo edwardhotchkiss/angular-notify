@@ -1,18 +1,13 @@
+
 'use strict';
 
-var notifyDemoApp = angular.module('notifyDemoApp',[
-  'AngularNotifyModule'
-])
+var notifyDemoApp = angular.module('notifyDemoApp',['ngRoute', 'AngularNotifyModule'])
 
-.config(function($routeProvider, $locationProvider) {        
-    
-  $locationProvider.html5Mode(false);
+.config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/', {
-      controller  : 'IndexController',
-      templateUrl : 'partials/main.html',
+    controller : 'IndexController',
+    templateUrl: 'partials/main.html'
   });
-  $routeProvider.otherwise({ redirectTo: '/' });
-
 })
 
 .controller('IndexController', function ($scope, $rootScope, notificationService) {
@@ -24,7 +19,7 @@ var notifyDemoApp = angular.module('notifyDemoApp',[
   };
 
   $scope.addNotification = function () {
-    if ($scope.message === undefined || $scope.message === '') {
+    if (!$scope.message || $scope.message === '') {
       notificationService.add('Your Notification Message cannot be blank!', 'error');
     } else {
       notificationService.add($scope.message, 'info');
@@ -32,5 +27,3 @@ var notifyDemoApp = angular.module('notifyDemoApp',[
   }
 
 });
-
-/* EOF */

@@ -1,18 +1,28 @@
 {
-  "private":true,
+  "private": true,
   "name": "angular-notify",
-  "version": "0.0.2",
-  "author": "Edward Hotchkiss <edwardhotchkiss@me.com>",
+  "version": "0.1.0",
+  "author": "Edward Hotchkiss <edward@edwardhotchkiss.com>",
+  "description": "Angular.js Notifications Module",
   "repository": {
     "type": "git",
     "url": "git@github.com:edwardhotchkiss/angular-notify.git"
   },
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 10.0.0"
   },
-  "description": "Angular.js Notifications Module. Includes Service for broadcasting, and a directive for the view.",
-  "dependencies": {
-    "uglify-js": "2.2.4",
-    "grunt":"0.3.17"
+  "keywords": [
+    "angular",
+    "notify"
+  ],
+  "devDependencies": {
+    "gulp": "3.8.5",
+    "gulp-concat": "2.2.0",
+    "gulp-connect": "^2.0.6",
+    "gulp-jshint": "1.5.5",
+    "gulp-rename": "1.2.0",
+    "gulp-uglify": "0.2.1",
+    "gulp-util": "2.2.14",
+    "gulp-watch": "0.6.4"
   }
 }

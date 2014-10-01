@@ -1,9 +1,8 @@
-'use strict';
 
-/*!
+/**
  * @module AngularNotifyModule
  * @description Notification Module. Bundled Directive & Service
- * @author Edward Hotchkiss <edwardhotchkiss@me.com>
+ * @author Edward Hotchkiss <edward@edwardhotchkiss.com>
  *
  * @license MIT
  *

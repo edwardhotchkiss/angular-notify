@@ -1,9 +1,8 @@
-'use strict';
 
-/*!
+/**
  * @module AngularNotifyModule
  * @description Notification Module. Bundled Directive & Service
- * @author Edward Hotchkiss <edwardhotchkiss@me.com>
+ * @author Edward Hotchkiss <edward@edwardhotchkiss.com>
  *
  * @license MIT
  *
@@ -12,10 +11,10 @@
 var angularNotifyModule = angular.module('AngularNotifyModule', []);
 
 
-/*!
+/**
  * @service angularNotify
  * @description Notification Service using either just sessions or also a backend
- * @author Edward Hotchkiss <edwardhotchkiss@me.com>
+ * @author Edward Hotchkiss <edward@edwardhotchkiss.com>
  *
  * @license MIT
  *
@@ -25,7 +24,7 @@ angularNotifyModule
 
   .factory('notificationService', ['$rootScope', function($rootScope) {
 
-    /*!
+    /**
      * @Object noticationService
      *
      * @attributes
@@ -40,14 +39,14 @@ angularNotifyModule
 
     var notificationService = {
 
-      /*!
+      /**
        * @Array notifications
        * @description Initial notifications container
        */
 
       notifications : [],
 
-      /*!
+      /**
        * @method add
        * @description $broadcast a message with a level
        *
@@ -56,12 +55,12 @@ angularNotifyModule
        *
        */
 
-      add : function(message, level) {
+      add: function(message, level) {
         level = level || 'info';
         var notification = {
           message : message,
           level   : level
-        }
+        };
         this.notifications.push(notification);
         return $rootScope.$broadcast('notification.add', notification);
       },
@@ -72,43 +71,45 @@ angularNotifyModule
        * @return {Array} notifications All current notifications
        */
 
-      all : function () {
+      all: function () {
         var notifications = this.notifications;
         $rootScope.$broadcast('notifications.all', true);
         return notifications;
       },
 
-      /*!
+      /**
        * @method dismiss
        * @param {Number} index Notification Array index to remove
        */
 
-      dismiss : function (index) {
+      dismiss: function (index) {
         this.notifications.splice(index, 1);
-        return $rootScope.$broadcast('notifications.remove', true);
+        $rootScope.$broadcast('notifications.remove', true);
+        return this;
       },
 
-      /*!
+      /**
        * @method count
        * @description Return the current notifications count
        */
 
-      count : function () {
+      count: function () {
         $rootScope.$broadcast('notifications.count', true);
         return this.notifications.length;
       },
 
-      /*!
+      /**
        * method clear
        * @description Clear all flashes
        */
 
       clear: function () {
         $rootScope.$broadcast('notifications.clear', true);
-        return this.notifications = [];
+        this.notifications = [];
+        return this;
       }
 
-    }
+    };
 
     return notificationService;
 
@@ -117,10 +118,10 @@ angularNotifyModule
 ]);
 
 
-/*!
+/**
  * @directive ngNotify
  * @description Notification Service using either just sessions or also a backend
- * @author Edward Hotchkiss <edwardhotchkiss@me.com>
+ * @author Edward Hotchkiss <edward@edwardhotchkiss.com>
  *
  * @html:
  * <ng-notify></ng-notify>
@@ -153,6 +154,6 @@ angularNotifyModule.directive('ngNotify', function($rootScope, $compile, notific
       $compile(element.contents())($scope);
     }
 
-  }
+  };
 
 });

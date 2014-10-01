@@ -1,8 +1,8 @@
 
-/*!
+/**
  * @directive ngNotify
  * @description Notification Service using either just sessions or also a backend
- * @author Edward Hotchkiss <edwardhotchkiss@me.com>
+ * @author Edward Hotchkiss <edward@edwardhotchkiss.com>
  *
  * @html:
  * <ng-notify></ng-notify>
@@ -35,6 +35,6 @@ angularNotifyModule.directive('ngNotify', function($rootScope, $compile, notific
       $compile(element.contents())($scope);
     }
 
-  }
+  };
 
 });
