@@ -8,6 +8,7 @@ var notifyDemoApp = angular.module('notifyDemoApp',['ngRoute', 'AngularNotifyMod
     controller : 'IndexController',
     templateUrl: 'partials/main.html'
   });
+  $locationProvider.html5Mode(true);
 })
 
 .controller('IndexController', function ($scope, $rootScope, notificationService) {
