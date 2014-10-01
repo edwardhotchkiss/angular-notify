@@ -17,6 +17,7 @@
   ],
   "devDependencies": {
     "gulp": "3.8.5",
+    "gulp-angular-templatecache": "^1.4.1",
     "gulp-concat": "2.2.0",
     "gulp-connect": "^2.0.6",
     "gulp-jshint": "1.5.5",

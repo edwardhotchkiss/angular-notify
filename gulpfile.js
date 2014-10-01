@@ -9,7 +9,8 @@ var gulp = require('gulp')
   , jshint = require('gulp-jshint')
   , watch = require('gulp-watch')
   , rename = require('gulp-rename')
-  , connect = require('gulp-connect');
+  , connect = require('gulp-connect')
+  , templateCache = require('gulp-angular-templatecache');
 
 /**
  * run jshint/lint on all of our non-library files
@@ -26,20 +27,39 @@ gulp.task('js-hint', function () {
 });
 
 /**
+ * compile templates into js
+ */
+
+gulp.task('js-templates', function () {
+  return gulp.src('src/templates/*.html')
+    .pipe(watch(function(files) {
+      return files
+        .pipe(templateCache({
+          module: 'AngularNotifyModule'
+        }))
+        .pipe(rename('angular-notify-template.js'))
+        .pipe(gulp.dest('src/js/'));
+    }
+  ));
+});
+
+/**
  * concat all library files along with our
  * sources into a single file
  */
 
 gulp.task('js-build-dev', function () {
   var allFiles = [
-    './src/AngularNotifyModule.js',
-    './src/AngularNotifyService.js',
-    './src/AngularNotifyDirective.js'
+    './src/js/angular-notify-module.js',
+    './src/js/angular-notify-template.js',
+    './src/js/angular-notify-service.js',
+    './src/js/angular-notify-directive.js'
   ];
-  return gulp.src(allFiles).pipe(watch(function (files) {
-    return gulp.src(allFiles)
-      .pipe(concat('angular-notify.js'))
-      .pipe(gulp.dest('./dist'));
+  return gulp.src(allFiles)
+    .pipe(watch(function (files) {
+      return gulp.src(allFiles)
+        .pipe(concat('angular-notify.js'))
+        .pipe(gulp.dest('./dist'));
     }
   ));
 });
@@ -50,7 +70,9 @@ gulp.task('js-build-dev', function () {
 
 gulp.task('js-build-production', function () {
   return gulp.src('./dist/angular-notify.js')
-    .pipe(uglify())
+    .pipe(uglify({
+      mangle: false}
+    ))
     .pipe(rename('angular-notify.min.js'))
     .pipe(gulp.dest('./dist'));
 });
@@ -70,8 +92,14 @@ gulp.task('connect-web-server', function () {
   });
 });
 
-// default task for development
-gulp.task('default', ['js-hint','js-build-dev','connect-web-server']);
+/**
+ * default task for development
+ */
 
-// production related tasks without watch
+gulp.task('default', ['js-hint','js-templates','js-build-dev','connect-web-server']);
+
+/**
+ * production related tasks without watch
+ */
+
 gulp.task('production', ['js-hint','js-build-production']);

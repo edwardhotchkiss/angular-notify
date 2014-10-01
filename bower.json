@@ -1,6 +1,6 @@
 {
   "name": "angular-notify",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "homepage": "https://github.com/edwardhotchkiss/angular-notify",
   "authors": [
     "Edward Hotchkiss <edward@edwardhotchkiss.com>"
@@ -20,8 +20,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular-cookies": "~1.2.25",
-    "angularLocalStorage": "~0.1.8",
     "angular": "~1.2.25",
     "angular-route": "~1.2.25"
   }

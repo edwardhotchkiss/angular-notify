@@ -8,6 +8,9 @@ var notifyDemoApp = angular.module('notifyDemoApp',['ngRoute', 'AngularNotifyMod
     controller : 'IndexController',
     templateUrl: 'partials/main.html'
   });
+  $routeProvider.otherwise({
+    redirectTo : '/'
+  });
   $locationProvider.html5Mode(true);
 })
 

@@ -32,7 +32,7 @@ angularNotifyModule
        * @description Initial notifications container
        */
 
-      notifications : [],
+      notifications: [],
 
       /**
        * @method add
