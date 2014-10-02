@@ -1,7 +1,7 @@
 
 'use strict';
 
-var notifyDemoApp = angular.module('notifyDemoApp',['ngRoute', 'AngularNotifyModule'])
+var notifyDemoApp = angular.module('notifyDemoApp', ['ngRoute', 'AngularNotifyModule'])
 
 .config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/', {

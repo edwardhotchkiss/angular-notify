@@ -16,8 +16,8 @@ angularNotifyModule.directive('ngNotify', function($rootScope, $compile, notific
   return {
 
     restrict: 'EA',
-    replace: true,
-    transclude: true,
+    replace: false,
+    transclude: false,
     templateUrl: 'angular-notify.html',
     link : function($scope, element, attrs) {
       $scope.notifications = notificationService.all();

@@ -8,4 +8,6 @@
  *
  */
 
-var angularNotifyModule = angular.module('AngularNotifyModule', []);
+var angularNotifyModule = angular.module('AngularNotifyModule', [
+  'pasvaz.bindonce'
+]);

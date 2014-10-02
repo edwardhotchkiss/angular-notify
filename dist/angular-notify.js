@@ -8,9 +8,11 @@
  *
  */
 
-var angularNotifyModule = angular.module('AngularNotifyModule', []);
+var angularNotifyModule = angular.module('AngularNotifyModule', [
+  'pasvaz.bindonce'
+]);
 
-angular.module("AngularNotifyModule").run(["$templateCache", function($templateCache) {$templateCache.put("angular-notify.html","\n<div class=\'angular-notify\'>\n  <h3>Notifications: <span ng-bind=\'notifications.length\'></span></h3>\n  <ul>\n    <li ng-repeat=\'notification in notifications\'>\n      <div class=\'notification\'>\n        <p class=\'notification-message\' ng-class=\'notification-{{notification.level}}\' ng-bind=\'notification.message\'></p>\n        <p class=\'notification-dismiss\'><a ng-click=\'dismiss($index)\' title=\'Dismiss\'>Dismiss</a></p>\n      </div>\n    </li>\n  </ul>\n</div>\n");}]);
+angular.module("AngularNotifyModule").run(["$templateCache", function($templateCache) {$templateCache.put("angular-notify.html","\n<div class=\'angular-notify\'>\n  <h3>Notifications: <span ng-bind=\'notifications.length\'></span></h3>\n  <ul>\n    <li bindonce=\'notifications\' ng-repeat=\'notification in notifications\'>\n      <div class=\'notification\'>\n        <p class=\'notification-message\' bo-class=\'notification-{{notification.level}}\' bo-bind=\'notification.message\'></p>\n        <p class=\'notification-dismiss\'><a ng-click=\'dismiss($index)\' title=\'Dismiss\'>Dismiss X</a></p>\n      </div>\n    </li>\n  </ul>\n</div>\n");}]);
 
 /**
  * @service angularNotify
@@ -136,8 +138,8 @@ angularNotifyModule.directive('ngNotify', function($rootScope, $compile, notific
   return {
 
     restrict: 'EA',
-    replace: true,
-    transclude: true,
+    replace: false,
+    transclude: false,
     templateUrl: 'angular-notify.html',
     link : function($scope, element, attrs) {
       $scope.notifications = notificationService.all();

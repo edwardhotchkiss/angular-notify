@@ -2,10 +2,10 @@
 <div class='angular-notify'>
   <h3>Notifications: <span ng-bind='notifications.length'></span></h3>
   <ul>
-    <li ng-repeat='notification in notifications'>
+    <li bindonce='notifications' ng-repeat='notification in notifications'>
       <div class='notification'>
-        <p class='notification-message' ng-class='notification-{{notification.level}}' ng-bind='notification.message'></p>
-        <p class='notification-dismiss'><a ng-click='dismiss($index)' title='Dismiss'>Dismiss</a></p>
+        <p class='notification-message' bo-class='notification-{{notification.level}}' bo-bind='notification.message'></p>
+        <p class='notification-dismiss'><a ng-click='dismiss($index)' title='Dismiss'>Dismiss X</a></p>
       </div>
     </li>
   </ul>
